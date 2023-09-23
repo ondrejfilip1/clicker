@@ -1,0 +1,2 @@
+Fixed the blue background for mobile
+Fixed cookie cursor
