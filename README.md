@@ -10,7 +10,7 @@
 
 ## Changelog
 
-[View](https://www.github.com/ondrejfilip1/clicker/changelog.txt)
+[View](https://github.com/ondrejfilip1/clicker/blob/master/changelog.txt)
 
 ## Authors
 
