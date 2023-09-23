@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title><span id="numberOfCookies">0</span></title>
+    <link rel="stylesheet" href="./res/css/style.css">
+    <link rel="shortcut icon" href="./res/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="nav">
+        <span class="material-symbols-rounded navbar" id="settings-nav">
+            settings
+        </span>
+        <span class="material-symbols-rounded navbar" id="achievement-nav">
+            trophy
+        </span>
+    </div>
+    <!--Achievementy-->
+    <div class="achievement-place">
+        <div class="button achievement" id="ac1">
+            <div class="flex">
+                <img src="./res/img/favicon.png" width="50px" height="50px" style="padding: 4px;">
+                Achievement unlocked!<br>
+                100 cookies
+            </div>
+        </div>
+        <div class="button achievement" id="ac2">
+            <div class="flex">
+                <img src="./res/img/ac1000.png" width="50px" height="50px" style="padding: 4px;">
+                Achievement unlocked!<br>
+                1 000 cookies
+            </div>
+        </div>
+        <div class="button achievement" id="ac3">
+            <div class="flex">
+                <img src="./res/img/ac20000.png" width="50px" height="50px" style="padding: 4px;">
+                Achievement unlocked!<br>
+                20 000 cookies
+            </div>
+        </div>
+        <div class="button achievement" id="ac4">
+            <div class="flex">
+                <img src="./res/img/ac1000000.png" width="50px" height="50px" style="padding: 4px;">
+                Achievement unlocked!<br>
+                1 000 000 cookies
+            </div>
+        </div>
+    </div>
+    <div class="filler"></div>
+    <div class="cookie-container">
+        <img id="cookie" src="./res/img/cookie.png" alt="Cookie" draggable="false">
+    </div>
+    <p id="counter">Cookies: 0</p>
+    <p class="per-second">Per second: <span id="per-second">0</span></p>
+    <div class="shop">
+        <button id="buy-boost" class="button" title="Adds 2x click boost everytime you buy">Boost<br>
+            <span class="cost" id="boost-cost">50</span>
+        </button><br>
+        <button id="buy-autoclicker" class="button" title="Clicks for you every second. 2x click boost everytime you buy">Autoclicker<br>
+            <span class="cost" id="autoclicker-cost">50</span>
+        </button>
+    </div>
+    <div class="settings button" id="settingsBox">Settings
+        <span class="material-symbols-rounded box-button" id="settings-close">
+            close
+        </span>
+        <br>
+        <div class="setting" id="display-amount">Display cookie amount in title</div>
+        <div class="setting" id="cookie-cursor">Cookie cursor</div>
+        <div class="dropdown">
+            <button class="button">Themes</button>
+            <div class="dropdown-content">
+                <a id="th-def">Default</a>
+                <a id="th-dark">Dark</a>
+                <a id="th-red">Red</a>
+                <a id="th-violet">Violet</a>
+                <a id="th-purple">Purple</a>
+                <a id="th-orange">Orange</a>
+                <a id="th-pixel-art">Pixel Art</a>
+            </div>
+        </div>
+    </div>
+    <script src="./res/js/main.js"></script>
+</body>
+
+</html>

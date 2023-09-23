@@ -1,0 +1,299 @@
+* {
+    user-select: none;
+}
+
+body {
+    background: radial-gradient(circle, rgba(0, 212, 255, 1) 52%, rgba(126, 119, 255, 1) 100%);
+    background-attachment: fixed;
+}
+
+:root {
+    --actop: 92px;
+}
+
+.material-symbols-rounded {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
+
+#cookie {
+    max-width: 200px;
+    height: auto;
+    cursor: pointer;
+    transition: .2s transform ease;
+    margin: auto;
+    display: inline-block;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent; /* Fix pro mobily */
+}
+
+#cookie:hover {
+    transform: scale(1.1);
+}
+
+#cookie:active {
+    transition: .05s transform ease;
+    transform: scale(0.98);
+}
+
+.cookie-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#counter {
+    text-align: center;
+    font-family: 'Itim', cursive;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4);
+    font-size: 3rem;
+    color: white;
+    margin-bottom: 0;
+}
+
+.filler {
+    margin-top: 3rem;
+    pointer-events: none;
+}
+
+.setting {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    color: #ffb5b5;
+    transition: .2s color;
+    cursor: pointer;
+}
+
+.button {
+    text-align: center;
+    font-family: 'Itim', cursive;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4);
+    font-size: 1.5rem;
+    color: white;
+    padding: 8px;
+    border: 3px solid white;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.1);
+    user-select: none;
+    backdrop-filter: blur(2px);
+}
+
+button.button {
+    pointer-events: none;
+    outline: 0px;
+    outline-color: transparent;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+#buy-boost,#buy-autoclicker {
+    transition: .4s opacity, .2s background-color, .3s outline-color;
+}
+
+#buy-boost:hover,#buy-autoclicker:hover {
+    outline: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.settings {
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    width: fit-content;
+    text-align: left;
+    margin: auto;
+    display: none;
+}
+
+.box-button {
+    color: white;
+    opacity: 0.7;
+    cursor: pointer;
+    transform: translateY(3px);
+    transition: .05s opacity;
+    float: right;
+}
+
+.box-button:hover {
+    opacity: 1;
+}
+
+.cost {
+    font-size: 14px;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.4);
+}
+
+.shop {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.achievement {
+    text-align: left;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+/* picovina fuj
+.achievement-place div:nth-child(2) {
+    top: var(--actop);
+}
+
+.achievement-place div:nth-child(3) {
+    top: calc(var(--actop) * 2);
+}
+
+.achievement-place div:nth-child(4) {
+    top: calc(var(--actop) * 3);
+}
+*/
+
+.achievement-place {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 8px;
+}
+
+#ac1,
+#ac2,
+#ac3,
+#ac4 {
+    display: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.rainbow {
+    animation: infinite rainbow 2s linear;
+}
+
+@keyframes rainbow {
+    from {
+        filter: hue-rotate(0deg) saturate(2.5);
+    }
+
+    to {
+        filter: hue-rotate(360deg) saturate(2.5);
+    }
+}
+
+.fade-out {
+    animation: ease-out fade-out 2001ms;
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.nav {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    user-select: none;
+}
+
+.navbar {
+    color: white;
+    opacity: 0.7;
+    cursor: pointer;
+    font-size: 3rem;
+    transition: .05s opacity;
+}
+
+.navbar:hover {
+    opacity: 1;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-top: 8px;
+}
+
+.dropdown button {
+    opacity: 1;
+    transition: .2s opacity;
+}
+
+.dropdown:hover button {
+    opacity: 0.7;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.1);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 20px;
+    transition: .2s background;
+}
+
+.dropdown-content a:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.click-text {
+    position: absolute;
+    font-family: 'Itim', cursive;
+    user-select: none;
+    pointer-events: none;
+    color: white;
+    font-size: 1.5rem;
+    animation: click-text 2s;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4);
+    -webkit-user-drag: none;
+}
+
+@keyframes click-text {
+    from {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-18px);
+    }
+}
+
+.per-second {
+    font-family: 'Itim', cursive;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4);
+    color: white;
+    font-size: 1.3rem;
+    text-align: center;
+    margin-top: 4px;
+    margin-bottom: 3rem;
+}
