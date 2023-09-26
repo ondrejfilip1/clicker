@@ -7,6 +7,9 @@ const settingsNav = document.getElementById("settings-nav");
 const achievementNav = document.getElementById("achievement-nav");
 const buy_boost = document.getElementById("buy-boost");
 const buy_autoclicker = document.getElementById("buy-autoclicker");
+const buy_upgrade_1 = document.getElementById("buy-upgrade-1");
+const upgrade_1_cost = document.getElementById("upgrade-1-cost");
+const upgrade_image = document.getElementById("upgrade-image");
 const boost_cost = document.getElementById("boost-cost");
 const autoclicker_cost = document.getElementById("autoclicker-cost");
 const th_def = document.getElementById("th-def");
@@ -23,7 +26,6 @@ const ac2 = document.getElementById("ac2");
 const ac3 = document.getElementById("ac3");
 const ac4 = document.getElementById("ac4");
 const per_second = document.getElementById("per-second");
-const intervalId = setInterval(autoclickerThing, 1000);
 
 let numberOfCookies = 0;
 
@@ -32,6 +34,11 @@ let autoclickerAdd = 0;
 let boostCost = 50;
 let boostMultiplier = 1;
 let firstBuyAC = true;
+
+let autoclickerUpgrade = 1;
+let autoclickerUpgradeCost = 2000;
+let autoclickerInterval = setInterval(autoclickerThing, 1000 * autoclickerUpgrade);
+let autoclickerBuyLimit = 9;
 
 let acHundred = false;
 let acThousand = false;
@@ -74,12 +81,34 @@ function updateAutoclicker() {
     }
 }
 
+function updateAutoclickerUpgrade() {
+    if (autoclickerBuyLimit <= 0) {
+        upgrade_1_cost.innerText = "Max";
+        buy_upgrade_1.style.opacity = 1;
+        buy_upgrade_1.style.pointerEvents = "none";
+        upgrade_image.style.filter= "grayscale(1)";
+    } else {
+        if (numberOfCookies >= autoclickerUpgradeCost) {
+            buy_upgrade_1.style.opacity = 1;
+            buy_upgrade_1.style.pointerEvents = "auto";
+            upgrade_image.style.filter = "grayscale(0)";
+        }
+
+        if (numberOfCookies < autoclickerUpgradeCost) {
+            buy_upgrade_1.style.opacity = 0.7;
+            buy_upgrade_1.style.pointerEvents = "none";
+            upgrade_image.style.filter= "grayscale(1)";
+        }
+    }
+}
+
 function autoclickerThing() {
     numberOfCookies = numberOfCookies + autoclickerAdd;
     counter.innerHTML = "Cookies: " + numberOfCookies;
     updateTitle();
     updateBoost();
     updateAutoclicker();
+    updateAutoclickerUpgrade();
 }
 
 function checkAchievements() {
@@ -178,6 +207,7 @@ cookie.onclick = (e) => {
 
     updateBoost();
     updateAutoclicker();
+    updateAutoclickerUpgrade();
 }
 
 updateTitle();
@@ -193,6 +223,7 @@ buy_boost.onclick = () => {
         counter.innerHTML = "Cookies: " + numberOfCookies;
         updateBoost();
         updateAutoclicker();
+        updateAutoclickerUpgrade();
     }
 }
 
@@ -200,18 +231,40 @@ buy_autoclicker.onclick = () => {
     if (numberOfCookies >= autoclickerCost) {
         numberOfCookies -= autoclickerCost;
         autoclickerCost *= 2;
-        autoclicker_cost.innerHTML = autoclickerCost;
+        autoclicker_cost.innerText = autoclickerCost;
         autoclickerAdd *= 2;
-        counter.innerHTML = "Cookies: " + numberOfCookies;
-        per_second.innerHTML = autoclickerAdd;
+        counter.innerText = "Cookies: " + numberOfCookies;
+        per_second.innerText = (autoclickerAdd * (2 - autoclickerUpgrade)).toFixed(1);
         updateBoost();
         updateAutoclicker();
+        updateAutoclickerUpgrade();
     }
 
     if (firstBuyAC) {
         firstBuyAC = false;
         autoclickerAdd = 1;
-        per_second.innerHTML = autoclickerAdd;
+        per_second.innerText = (autoclickerAdd * (2 - autoclickerUpgrade)).toFixed(1);
+    }
+}
+
+buy_upgrade_1.onclick = () => {
+    autoclickerBuyLimit -= 1;
+    if (numberOfCookies >= autoclickerUpgradeCost) {
+        numberOfCookies -= autoclickerUpgradeCost;
+        upgrade_1_cost.innerText = autoclickerUpgradeCost;
+        autoclickerUpgrade -= 0.1;
+        clearInterval(autoclickerInterval);
+        autoclickerInterval = setInterval(autoclickerThing, 1000 * autoclickerUpgrade);
+        per_second.innerText = (autoclickerAdd * (2 - autoclickerUpgrade)).toFixed(1);
+        counter.innerText = "Cookies: " + numberOfCookies;
+        if (autoclickerBuyLimit <= 0) {
+            upgrade_1_cost.innerText = "Max";
+            buy_upgrade_1.style.opacity = 0.7;
+            buy_upgrade_1.style.pointerEvents = "none";
+        }
+        updateBoost();
+        updateAutoclicker();
+        updateAutoclickerUpgrade();
     }
 }
 
@@ -274,6 +327,7 @@ cookie_cursor.onclick = () => {
         achievementNav.style.cursor = 'pointer';
         cookie_cursor.style.cursor = 'pointer';
         display_amount.style.cursor = 'pointer';
+        buy_upgrade_1.style.cursor = 'pointer';
     } else {
         cookie_cursor.style.color = '#b5ffb5';
         document.querySelectorAll('*').forEach(function (element) {
@@ -288,36 +342,42 @@ th_red.onclick = () => {
     document.body.style.background = "radial-gradient(circle, rgba(255,121,121,1) 52%, rgba(255,79,79,1) 100%)";
     document.body.style.backgroundAttachment = "fixed";
     cookie.src = 'res/img/cookie.png';
+    resetFont();
 }
 
 th_def.onclick = () => {
     document.body.style.background = "radial-gradient(circle, rgba(0, 212, 255, 1) 52%, rgba(126, 119, 255, 1) 100%)";
     document.body.style.backgroundAttachment = "fixed";
     cookie.src = 'res/img/cookie.png';
+    resetFont();
 }
 
 th_dark.onclick = () => {
     document.body.style.background = "#1b1b1b";
     document.body.style.backgroundAttachment = "fixed";
     cookie.src = 'res/img/cookie.png';
+    resetFont();
 }
 
 th_violet.onclick = () => {
     document.body.style.background = "radial-gradient(circle, rgba(161,141,206,1) 34%, rgba(244,146,240,1) 100%)";
     document.body.style.backgroundAttachment = "fixed";
     cookie.src = 'res/img/cookie.png';
+    resetFont();
 }
 
 th_purple.onclick = () => {
     document.body.style.background = "radial-gradient(circle, rgba(198,63,123,1) 5%, rgba(102,49,119,1) 100%)";
     document.body.style.backgroundAttachment = "fixed";
     cookie.src = 'res/img/cookie.png';
+    resetFont();
 }
 
 th_orange.onclick = () => {
     document.body.style.background = "radial-gradient(circle, rgba(245,92,122,1) 15%, rgba(246,188,102,1) 100%)";
     document.body.style.backgroundAttachment = "fixed";
     cookie.src = 'res/img/cookie.png';
+    resetFont();
 }
 
 th_pixel_art.onclick = () => {
@@ -325,6 +385,15 @@ th_pixel_art.onclick = () => {
     document.body.style.backgroundImage = 'url("res/img/background_pixel.png")'
     document.body.style.backgroundAttachment = "";
     cookie.src = 'res/img/cookie_pixel.png';
+    document.querySelectorAll('*:not(.material-symbols-rounded)').forEach(function (element) {
+        element.style.fontFamily = '"Pixel", sans-serif';
+    });
+}
+
+function resetFont() {
+    document.querySelectorAll('*:not(.material-symbols-rounded)').forEach(function (element) {
+        element.style.fontFamily = '"Itim", sans-serif';
+    });
 }
 
 // Secrety
@@ -342,6 +411,7 @@ document.addEventListener("keydown", (event) => {
             counter.innerHTML = "Cookies: " + numberOfCookies;
             updateBoost();
             updateAutoclicker();
+            updateAutoclickerUpgrade();
             checkAchievements();
             console.log("Cheat activated: ieatedit");
             cheatKey = "";
@@ -350,6 +420,7 @@ document.addEventListener("keydown", (event) => {
             counter.innerHTML = "Cookies: " + numberOfCookies;
             updateBoost();
             updateAutoclicker();
+            updateAutoclickerUpgrade();
             checkAchievements();
             console.log("Cheat activated: nikocado");
             cheatKey = "";

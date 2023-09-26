@@ -61,11 +61,17 @@
     <p id="counter">Cookies: 0</p>
     <p class="per-second">Per second: <span id="per-second">0</span></p>
     <div class="shop">
-        <button id="buy-boost" class="button" title="Adds 2x click boost everytime you buy">Boost<br>
+        <button id="buy-boost" class="button button-shop" title="Adds 2x click boost everytime you buy">Boost<br>
             <span class="cost" id="boost-cost">50</span>
-        </button><br>
-        <button id="buy-autoclicker" class="button" title="Clicks for you every second. 2x click boost everytime you buy">Autoclicker<br>
+        </button>
+        <button id="buy-autoclicker" class="button button-shop" title="Clicks for you every second. 2x click boost everytime you buy">Autoclicker<br>
             <span class="cost" id="autoclicker-cost">50</span>
+        </button>
+    </div>
+    <div class="shop-upgrade">
+        <button id="buy-upgrade-1" class="button button-shop center" title="This upgrade makes autoclicker faster">Autoclicker Speed<br>
+            <img src="./res/img/acupgrade.png" width="70px" id="upgrade-image"><br>
+            <span class="cost" id="upgrade-1-cost">2000</span>
         </button>
     </div>
     <div class="settings button" id="settingsBox">Settings
@@ -76,7 +82,7 @@
         <div class="setting" id="display-amount">Display cookie amount in title</div>
         <div class="setting" id="cookie-cursor">Cookie cursor</div>
         <div class="dropdown">
-            <button class="button">Themes</button>
+            <button class="button button-themes">Themes</button>
             <div class="dropdown-content">
                 <a id="th-def">Default</a>
                 <a id="th-dark">Dark</a>

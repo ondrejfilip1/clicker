@@ -1,5 +1,6 @@
 * {
     user-select: none;
+    font-family: 'Itim', cursive;
 }
 
 body {
@@ -7,9 +8,13 @@ body {
     background-attachment: fixed;
 }
 
-:root {
-    --actop: 92px;
+@font-face {
+    font-family: Pixel; src: url('../fonts/pixel.ttf'); 
 }
+
+/*:root {
+    --actop: 92px;
+}*/
 
 .material-symbols-rounded {
     font-variation-settings:
@@ -23,7 +28,7 @@ body {
     max-width: 200px;
     height: auto;
     cursor: pointer;
-    transition: .2s transform ease;
+    transition: .2s transform cubic-bezier(.47,1.64,.41,1.2);
     margin: auto;
     display: inline-block;
     -webkit-user-drag: none;
@@ -53,7 +58,6 @@ body {
 
 #counter {
     text-align: center;
-    font-family: 'Itim', cursive;
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4);
     font-size: 3rem;
     color: white;
@@ -75,7 +79,6 @@ body {
 
 .button {
     text-align: center;
-    font-family: 'Itim', cursive;
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4);
     font-size: 1.5rem;
     color: white;
@@ -93,15 +96,38 @@ button.button {
     outline-color: transparent;
     opacity: 0.7;
     cursor: pointer;
+    margin: 12px;
+    margin-left: 0;
+    margin-bottom: 0;
+    width: fit-content;
 }
 
-#buy-boost,#buy-autoclicker {
+.center {
+    margin-left: auto!important;
+    margin-right: auto!important;
+}
+
+.button-themes {
+    margin: 0!important;
+}
+
+button.button:last-child {
+    margin-right: 0;
+}
+
+.button-shop {
     transition: .4s opacity, .2s background-color, .3s outline-color;
 }
 
-#buy-boost:hover,#buy-autoclicker:hover {
-    outline: 2px solid rgba(255, 255, 255, 0.3);
+.button-shop:hover {
+    outline: 3px solid rgba(255, 255, 255, 0.3);
     background: rgba(0, 0, 0, 0.15);
+}
+
+#buy-upgrade-1 {
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to left, #f857a6, #ff957a);
+    border-radius: 0;
 }
 
 .settings {
@@ -134,9 +160,16 @@ button.button {
 
 .shop {
     display: flex;
+    flex-wrap: wrap;
+    -webkit-box-pack: center!important;
+    -ms-flex-pack: center!important;
+    justify-content: center!important;
+}
+
+.shop-upgrade {
+    display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: center!important;
 }
 
 .achievement {
@@ -164,6 +197,7 @@ button.button {
     display: flex;
     flex-direction: column;
     top: 8px;
+    z-index: 99;
 }
 
 #ac1,
@@ -246,6 +280,7 @@ button.button {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
     z-index: 1;
+    text-shadow: none;
 }
 
 .dropdown-content a {
@@ -253,11 +288,12 @@ button.button {
     text-decoration: none;
     display: block;
     font-size: 20px;
-    transition: .2s background;
+    transition: .2s background, .6s cubic-bezier(0.165, 0.84, 0.44, 1) padding-left;
 }
 
 .dropdown-content a:hover {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.2);
+    padding-left: 20px;
 }
 
 .dropdown:hover .dropdown-content {
@@ -266,11 +302,11 @@ button.button {
 
 .click-text {
     position: absolute;
-    font-family: 'Itim', cursive;
     user-select: none;
     pointer-events: none;
     color: white;
     font-size: 1.5rem;
+    font-family: inherit;
     animation: click-text 2s;
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4);
     -webkit-user-drag: none;
@@ -289,11 +325,63 @@ button.button {
 }
 
 .per-second {
-    font-family: 'Itim', cursive;
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4);
     color: white;
     font-size: 1.3rem;
     text-align: center;
     margin-top: 4px;
     margin-bottom: 3rem;
+}
+
+#th-def {
+    background-image: linear-gradient(10deg, #00d4ff9f, #7e77ff9f);
+}
+
+#th-dark {
+    background-image: linear-gradient(60deg, #7070709f, #3333339f);
+}
+
+#th-red {
+    background-image: linear-gradient(90deg, #ff79799f, #ff4f4f9f);
+}
+
+#th-orange {
+    background-image: linear-gradient(34deg, #f55c7b9f, #f6bc669f);
+}
+
+#th-violet {
+    background-image: linear-gradient(90deg, #a08dce9f, #f492f09f);
+}
+
+#th-purple {
+    background-image: linear-gradient(20deg, #c63f7b9f, #6631779f);
+}
+
+#th-pixel-art {
+    background-image: url("../img/cookie_pixel.png");
+    background-color: #00000046;
+    text-shadow: 0px 0px 4px #00000085;
+    background-size: cover;
+}
+
+#upgrade-image {
+    transition: .2s filter;
+    filter: grayscale(1);
+    transform: translateY(6px);
+}
+
+#ac1 {
+    border-color: #fac176;
+}
+
+#ac2 {
+    border-color: #e3c62d;
+}
+
+#ac3 {
+    border-color: #7bd8f7;
+}
+
+#ac4 {
+    border-color: #a362ff;
 }
