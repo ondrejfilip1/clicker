@@ -227,6 +227,30 @@ settingsNav.onclick = () => {
     }
 }
 
+// https://www.geeksforgeeks.org/draggable-element-using-javascript/
+
+function onMouseDrag({ movementX, movementY }) {
+    let getsettingsBoxStyle = window.getComputedStyle(settingsBox);
+    let leftValue = parseInt(getsettingsBoxStyle.left);
+    let topValue = parseInt(getsettingsBoxStyle.top);
+    settingsBox.style.left = `${leftValue + movementX}px`;
+    settingsBox.style.top = `${topValue + movementY}px`;
+}
+settingsBox.addEventListener("mousedown", () => {
+    settingsBox.addEventListener("mousemove", onMouseDrag);
+    settingsBox.style.cursor = "grabbing";
+});
+document.addEventListener("mouseup", () => {
+    settingsBox.removeEventListener("mousemove", onMouseDrag);
+    if (cookie_cursor.style.color === 'rgb(181, 255, 181)') {
+        document.querySelectorAll('*').forEach(function (element) {
+            element.style.cursor = 'url("res/img/cursor.png"), auto';
+        });
+    } else {
+        settingsBox.style.cursor = "auto";
+    }
+});
+
 display_amount.onclick = () => {
     if (display_amount.style.color === 'rgb(181, 255, 181)') {
         display_amount.style.color = '#ffb5b5';
@@ -238,7 +262,7 @@ display_amount.onclick = () => {
 cookie_cursor.onclick = () => {
     if (cookie_cursor.style.color === 'rgb(181, 255, 181)') {
         cookie_cursor.style.color = '#ffb5b5';
-        document.querySelectorAll('*').forEach(function(element) {
+        document.querySelectorAll('*').forEach(function (element) {
             element.style.cursor = 'auto';
         });
         //Cinsky kod
@@ -252,8 +276,8 @@ cookie_cursor.onclick = () => {
         display_amount.style.cursor = 'pointer';
     } else {
         cookie_cursor.style.color = '#b5ffb5';
-        document.querySelectorAll('*').forEach(function(element) {
-          element.style.cursor = 'url("res/img/cursor.png"), auto';
+        document.querySelectorAll('*').forEach(function (element) {
+            element.style.cursor = 'url("res/img/cursor.png"), auto';
         });
     }
 };

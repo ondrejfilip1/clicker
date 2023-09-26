@@ -1,2 +1,4 @@
+Added grab feature for settings
+
 Fixed the blue background for mobile
 Fixed cookie cursor
