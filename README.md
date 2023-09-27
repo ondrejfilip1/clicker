@@ -6,7 +6,7 @@
 
 <details>
   <summary>Show</summary>
-  <p>
+  <p><br>
     <strong>ieatedit</strong> - Adds 1 000 cookies<br>
     <strong>nikocado</strong> - Adds 1 000 000 cookies<br>
     <strong>rainbow</strong> - Cookie will become rainbow<br>
