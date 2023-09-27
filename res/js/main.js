@@ -620,6 +620,28 @@ document.addEventListener("keydown", (event) => {
             updateThemeShop();
             console.log("Cheat activated: nikocado");
             cheatKey = "";
+        } else if (cheatKey.includes("themehack")) {
+            thDarkBought = true;
+            thOrangeBought = true;
+            thPixelArtBought = true;
+            thRedBought = true;
+            thVioletBought = true;
+            thPurpleBought = true;
+            cost_th_dark.innerText = "Bought";
+            th_dark.style.display = "block";
+            cost_th_red.innerText = "Bought";
+            th_red.style.display = "block";
+            cost_th_pixel_art.innerText = "Bought";
+            th_pixel_art.style.display = "block";
+            cost_th_violet.innerText = "Bought";
+            th_violet.style.display = "block";
+            cost_th_purple.innerText = "Bought";
+            th_purple.style.display = "block";
+            cost_th_orange.innerText = "Bought";
+            th_orange.style.display = "block";
+            updateThemeShop();
+            console.log("Cheat activated: themehack");
+            cheatKey = "";
         }
     } else {
         cheatKey = "";
