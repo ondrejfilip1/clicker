@@ -7,10 +7,10 @@
 <details>
   <summary>Show</summary>
   <p>
-    **ieatedit** - Adds 1 000 cookies\
-    **nikocado** - Adds 1 000 000 cookies\
-    **rainbow** - Cookie will become rainbow\
-    **themehack** - Unlocks all themes
+    <strong>ieatedit</strong> - Adds 1 000 cookies<br>
+    <strong>nikocado</strong> - Adds 1 000 000 cookies<br>
+    <strong>rainbow</strong> - Cookie will become rainbow<br>
+    <strong>themehack</strong> - Unlocks all themes
   </p>
 </details>
 
