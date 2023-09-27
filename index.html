@@ -15,82 +15,111 @@
 </head>
 
 <body>
-    <div class="nav">
-        <span class="material-symbols-rounded navbar" id="settings-nav">
-            settings
-        </span>
-        <span class="material-symbols-rounded navbar" id="achievement-nav">
-            trophy
-        </span>
-    </div>
-    <!--Achievementy-->
-    <div class="achievement-place">
-        <div class="button achievement" id="ac1">
-            <div class="flex">
-                <img src="./res/img/favicon.png" width="50px" height="50px" style="padding: 4px;">
-                Achievement unlocked!<br>
-                100 cookies
+    <div class="all">
+        <div class="container-1">
+            <div class="nav">
+                <span class="material-symbols-rounded navbar" id="settings-nav">
+                    settings
+                </span>
+                <span class="material-symbols-rounded navbar" id="achievement-nav">
+                    trophy
+                </span>
+            </div>
+            <!--Achievementy-->
+            <div class="achievement-place">
+                <div class="button achievement" id="ac1">
+                    <div class="flex">
+                        <img src="./res/img/favicon.png" width="50px" height="50px" style="padding: 4px;">
+                        Achievement unlocked!<br>
+                        100 cookies
+                    </div>
+                </div>
+                <div class="button achievement" id="ac2">
+                    <div class="flex">
+                        <img src="./res/img/ac1000.png" width="50px" height="50px" style="padding: 4px;">
+                        Achievement unlocked!<br>
+                        1 000 cookies
+                    </div>
+                </div>
+                <div class="button achievement" id="ac3">
+                    <div class="flex">
+                        <img src="./res/img/ac20000.png" width="50px" height="50px" style="padding: 4px;">
+                        Achievement unlocked!<br>
+                        20 000 cookies
+                    </div>
+                </div>
+                <div class="button achievement" id="ac4">
+                    <div class="flex">
+                        <img src="./res/img/ac1000000.png" width="50px" height="50px" style="padding: 4px;">
+                        Achievement unlocked!<br>
+                        1 000 000 cookies
+                    </div>
+                </div>
+            </div>
+            <div class="filler"></div>
+            <div class="cookie-container">
+                <img id="cookie" src="./res/img/cookie.png" alt="Cookie" draggable="false">
+            </div>
+            <p id="counter">Cookies: 0</p>
+            <p class="per-second">Per second: <span id="per-second">0</span></p>
+            <div class="settings button" id="settingsBox">Settings
+                <span class="material-symbols-rounded box-button" id="settings-close">
+                    close
+                </span>
+                <br>
+                <div class="setting" id="display-amount">Display cookie amount in title</div>
+                <div class="setting" id="cookie-cursor">Cookie cursor</div>
+                <div class="dropdown">
+                    <button class="button button-themes">Themes</button>
+                    <div class="dropdown-content">
+                        <a id="th-def">Default</a>
+                        <a id="th-dark">Dark</a>
+                        <a id="th-red">Red</a>
+                        <a id="th-violet">Violet</a>
+                        <a id="th-purple">Purple</a>
+                        <a id="th-orange">Orange</a>
+                        <a id="th-pixel-art">Pixel Art</a>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="button achievement" id="ac2">
-            <div class="flex">
-                <img src="./res/img/ac1000.png" width="50px" height="50px" style="padding: 4px;">
-                Achievement unlocked!<br>
-                1 000 cookies
+        <div class="container-2">
+            <h2>Store</h2>
+            <div class="shop">
+                <button id="buy-boost" class="button button-shop"
+                    title="Adds 2x click boost everytime you buy">Boost<br>
+                    <span class="cost" id="boost-cost">50</span>
+                    <img src="./res/img/boost.png" alt="boost" width="40px" class="icon-shop">
+                </button>
+                <button id="buy-autoclicker" class="button button-shop"
+                    title="Clicks for you every second. 2x click boost everytime you buy">Autoclicker<br>
+                    <span class="cost" id="autoclicker-cost">50</span>
+                    <img src="./res/img/ac.png" alt="boost" width="40px" class="icon-shop">
+                </button>
             </div>
-        </div>
-        <div class="button achievement" id="ac3">
-            <div class="flex">
-                <img src="./res/img/ac20000.png" width="50px" height="50px" style="padding: 4px;">
-                Achievement unlocked!<br>
-                20 000 cookies
+            <div class="shop-upgrade">
+                <button id="buy-upgrade-1" class="button button-shop center"
+                    title="This upgrade makes autoclicker faster">Autoclicker Speed<br>
+                    <img src="./res/img/acupgrade.png" width="70px" id="upgrade-image"><br>
+                    <span class="cost" id="upgrade-1-cost">2000</span>
+                </button>
             </div>
-        </div>
-        <div class="button achievement" id="ac4">
-            <div class="flex">
-                <img src="./res/img/ac1000000.png" width="50px" height="50px" style="padding: 4px;">
-                Achievement unlocked!<br>
-                1 000 000 cookies
-            </div>
-        </div>
-    </div>
-    <div class="filler"></div>
-    <div class="cookie-container">
-        <img id="cookie" src="./res/img/cookie.png" alt="Cookie" draggable="false">
-    </div>
-    <p id="counter">Cookies: 0</p>
-    <p class="per-second">Per second: <span id="per-second">0</span></p>
-    <div class="shop">
-        <button id="buy-boost" class="button button-shop" title="Adds 2x click boost everytime you buy">Boost<br>
-            <span class="cost" id="boost-cost">50</span>
-        </button>
-        <button id="buy-autoclicker" class="button button-shop" title="Clicks for you every second. 2x click boost everytime you buy">Autoclicker<br>
-            <span class="cost" id="autoclicker-cost">50</span>
-        </button>
-    </div>
-    <div class="shop-upgrade">
-        <button id="buy-upgrade-1" class="button button-shop center" title="This upgrade makes autoclicker faster">Autoclicker Speed<br>
-            <img src="./res/img/acupgrade.png" width="70px" id="upgrade-image"><br>
-            <span class="cost" id="upgrade-1-cost">2000</span>
-        </button>
-    </div>
-    <div class="settings button" id="settingsBox">Settings
-        <span class="material-symbols-rounded box-button" id="settings-close">
-            close
-        </span>
-        <br>
-        <div class="setting" id="display-amount">Display cookie amount in title</div>
-        <div class="setting" id="cookie-cursor">Cookie cursor</div>
-        <div class="dropdown">
-            <button class="button button-themes">Themes</button>
-            <div class="dropdown-content">
-                <a id="th-def">Default</a>
-                <a id="th-dark">Dark</a>
-                <a id="th-red">Red</a>
-                <a id="th-violet">Violet</a>
-                <a id="th-purple">Purple</a>
-                <a id="th-orange">Orange</a>
-                <a id="th-pixel-art">Pixel Art</a>
+            <h3 class="theme-h3">Themes</h3>
+            <div class="theme-container">
+                <table>
+                    <tr>
+                        <td>
+                            <button class="button th-dark" id="buy-th-dark">Dark<br><span class="cost" id="cost-th-dark">4000</span></button>
+                            <button class="button th-red" id="buy-th-red">Red<br><span class="cost" id="cost-th-red">8000</span></button>
+                            <button class="button th-violet" id="buy-th-violet">Violet<br><span class="cost" id="cost-th-violet">8000</span></button>
+                        </td>
+                        <td>
+                            <button class="button th-purple" id="buy-th-purple">Purple<br><span class="cost" id="cost-th-purple">8000</span></button>
+                            <button class="button th-orange" id="buy-th-orange">Orange<br><span class="cost" id="cost-th-orange">8000</span></button>
+                            <button class="button th-pixel-art" id="buy-th-pixel-art">Pixel Art<br><span class="cost" id="cost-th-pixel-art">40000</span></button>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>

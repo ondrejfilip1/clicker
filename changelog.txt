@@ -1,3 +1,5 @@
+Added sound for buying
+Added store
 Added grab feature for settings
 
 Fixed the blue background for mobile

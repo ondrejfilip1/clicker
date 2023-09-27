@@ -1,6 +1,7 @@
 const cookie = document.getElementById("cookie");
 const counter = document.getElementById("counter");
 const click = ["res/sounds/click.mp3", "res/sounds/click1.mp3"];
+const buy_sound = new Audio("res/sounds/buysound.mp3");
 const settingsClose = document.getElementById("settings-close");
 const settingsBox = document.getElementById("settingsBox");
 const settingsNav = document.getElementById("settings-nav");
@@ -12,6 +13,7 @@ const upgrade_1_cost = document.getElementById("upgrade-1-cost");
 const upgrade_image = document.getElementById("upgrade-image");
 const boost_cost = document.getElementById("boost-cost");
 const autoclicker_cost = document.getElementById("autoclicker-cost");
+
 const th_def = document.getElementById("th-def");
 const th_red = document.getElementById("th-red");
 const th_dark = document.getElementById("th-dark");
@@ -19,6 +21,23 @@ const th_violet = document.getElementById("th-violet");
 const th_purple = document.getElementById("th-purple");
 const th_orange = document.getElementById("th-orange");
 const th_pixel_art = document.getElementById("th-pixel-art");
+
+const buy_th_def = document.getElementById("buy-th-def");
+const buy_th_red = document.getElementById("buy-th-red");
+const buy_th_dark = document.getElementById("buy-th-dark");
+const buy_th_violet = document.getElementById("buy-th-violet");
+const buy_th_purple = document.getElementById("buy-th-purple");
+const buy_th_orange = document.getElementById("buy-th-orange");
+const buy_th_pixel_art = document.getElementById("buy-th-pixel-art");
+
+const cost_th_def = document.getElementById("cost-th-def");
+const cost_th_red = document.getElementById("cost-th-red");
+const cost_th_dark = document.getElementById("cost-th-dark");
+const cost_th_violet = document.getElementById("cost-th-violet");
+const cost_th_purple = document.getElementById("cost-th-purple");
+const cost_th_orange = document.getElementById("cost-th-orange");
+const cost_th_pixel_art = document.getElementById("cost-th-pixel-art");
+
 const display_amount = document.getElementById("display-amount");
 const cookie_cursor = document.getElementById("cookie-cursor");
 const ac1 = document.getElementById("ac1");
@@ -45,6 +64,13 @@ let acThousand = false;
 let acTwThousand = false;
 let acMilion = false;
 
+let thDarkBought = false;
+let thRedBought = false;
+let thVioletBought = false;
+let thPurpleBought = false;
+let thOrangeBought = false;
+let thPixelArtBought = false;
+
 function updateTitle() {
     if (display_amount.style.color === 'rgb(181, 255, 181)') {
         if (numberOfCookies == 1) {
@@ -55,6 +81,11 @@ function updateTitle() {
     } else {
         document.title = "Clicker";
     }
+}
+
+function buySound() {
+    buy_sound.currentTime = 0;
+    buy_sound.play();
 }
 
 function updateBoost() {
@@ -102,13 +133,78 @@ function updateAutoclickerUpgrade() {
     }
 }
 
+function updateThemeShop() {
+    if (numberOfCookies >= 4000) {
+        buy_th_dark.style.opacity = 1;
+        buy_th_dark.style.pointerEvents = "auto";
+    }
+
+    if (numberOfCookies < 4000 || thDarkBought == true) {
+        buy_th_dark.style.opacity = 0.7;
+        buy_th_dark.style.pointerEvents = "none";
+    }
+
+    if (numberOfCookies >= 40000) {
+        buy_th_pixel_art.style.opacity = 1;
+        buy_th_pixel_art.style.pointerEvents = "auto";
+    }
+
+    if (numberOfCookies < 40000 || thPixelArtBought == true) {
+        buy_th_pixel_art.style.opacity = 0.7;
+        buy_th_pixel_art.style.pointerEvents = "none";
+    }
+
+    if (numberOfCookies >= 8000) {
+        buy_th_red.style.opacity = 1;
+        buy_th_red.style.pointerEvents = "auto";
+        buy_th_violet.style.opacity = 1;
+        buy_th_violet.style.pointerEvents = "auto";
+        buy_th_purple.style.opacity = 1;
+        buy_th_purple.style.pointerEvents = "auto";
+        buy_th_orange.style.opacity = 1;
+        buy_th_orange.style.pointerEvents = "auto";
+    }
+
+    if (numberOfCookies < 8000) {
+        buy_th_red.style.opacity = 0.7;
+        buy_th_red.style.pointerEvents = "none";
+        buy_th_violet.style.opacity = 0.7;
+        buy_th_violet.style.pointerEvents = "none";
+        buy_th_purple.style.opacity = 0.7;
+        buy_th_purple.style.pointerEvents = "none";
+        buy_th_orange.style.opacity = 0.7;
+        buy_th_orange.style.pointerEvents = "none";
+    }
+
+    if (thOrangeBought == true) {
+        buy_th_orange.style.opacity = 0.7;
+        buy_th_orange.style.pointerEvents = "none";
+    }
+
+    if (thVioletBought == true) {
+        buy_th_violet.style.opacity = 0.7;
+        buy_th_violet.style.pointerEvents = "none";
+    }
+
+    if (thRedBought == true) {
+        buy_th_red.style.opacity = 0.7;
+        buy_th_red.style.pointerEvents = "none";
+    }
+
+    if (thPurpleBought == true) {
+        buy_th_purple.style.opacity = 0.7;
+        buy_th_purple.style.pointerEvents = "none";
+    }
+}
+
 function autoclickerThing() {
     numberOfCookies = numberOfCookies + autoclickerAdd;
-    counter.innerHTML = "Cookies: " + numberOfCookies;
+    counter.innerText = "Cookies: " + numberOfCookies;
     updateTitle();
     updateBoost();
     updateAutoclicker();
     updateAutoclickerUpgrade();
+    updateThemeShop();
 }
 
 function checkAchievements() {
@@ -179,7 +275,7 @@ function checkAchievements() {
 
 cookie.onclick = (e) => {
     numberOfCookies += boostMultiplier;
-    counter.innerHTML = "Cookies: " + numberOfCookies;
+    counter.innerText = "Cookies: " + numberOfCookies;
 
     updateTitle();
 
@@ -208,6 +304,7 @@ cookie.onclick = (e) => {
     updateBoost();
     updateAutoclicker();
     updateAutoclickerUpgrade();
+    updateThemeShop();
 }
 
 updateTitle();
@@ -218,12 +315,14 @@ buy_boost.onclick = () => {
     if (numberOfCookies >= boostCost) {
         numberOfCookies -= boostCost;
         boostCost *= 2;
-        boost_cost.innerHTML = boostCost;
+        boost_cost.innerText = boostCost;
         boostMultiplier *= 2;
-        counter.innerHTML = "Cookies: " + numberOfCookies;
+        counter.innerText = "Cookies: " + numberOfCookies;
+        buySound();
         updateBoost();
         updateAutoclicker();
         updateAutoclickerUpgrade();
+        updateThemeShop();
     }
 }
 
@@ -235,9 +334,11 @@ buy_autoclicker.onclick = () => {
         autoclickerAdd *= 2;
         counter.innerText = "Cookies: " + numberOfCookies;
         per_second.innerText = (autoclickerAdd * (2 - autoclickerUpgrade)).toFixed(1);
+        buySound();
         updateBoost();
         updateAutoclicker();
         updateAutoclickerUpgrade();
+        updateThemeShop();
     }
 
     if (firstBuyAC) {
@@ -251,6 +352,7 @@ buy_upgrade_1.onclick = () => {
     autoclickerBuyLimit -= 1;
     if (numberOfCookies >= autoclickerUpgradeCost) {
         numberOfCookies -= autoclickerUpgradeCost;
+        autoclickerUpgradeCost *= 6;
         upgrade_1_cost.innerText = autoclickerUpgradeCost;
         autoclickerUpgrade -= 0.1;
         clearInterval(autoclickerInterval);
@@ -262,9 +364,11 @@ buy_upgrade_1.onclick = () => {
             buy_upgrade_1.style.opacity = 0.7;
             buy_upgrade_1.style.pointerEvents = "none";
         }
+        buySound();
         updateBoost();
         updateAutoclicker();
         updateAutoclickerUpgrade();
+        updateThemeShop();
     }
 }
 
@@ -390,6 +494,96 @@ th_pixel_art.onclick = () => {
     });
 }
 
+buy_th_dark.onclick = () => {
+    if (numberOfCookies >= 4000) {
+        numberOfCookies -= 4000;
+        cost_th_dark.innerText = "Bought";
+        thDarkBought = true;
+        counter.innerText = "Cookies: " + numberOfCookies;
+        th_dark.style.display = "block";
+        buySound();
+        updateBoost();
+        updateAutoclicker();
+        updateAutoclickerUpgrade();
+        updateThemeShop();
+    }
+}
+
+buy_th_pixel_art.onclick = () => {
+    if (numberOfCookies >= 40000) {
+        numberOfCookies -= 40000;
+        cost_th_pixel_art.innerText = "Bought";
+        thPixelArtBought = true;
+        counter.innerText = "Cookies: " + numberOfCookies;
+        th_pixel_art.style.display = "block";
+        buySound();
+        updateBoost();
+        updateAutoclicker();
+        updateAutoclickerUpgrade();
+        updateThemeShop();
+    }
+}
+
+buy_th_purple.onclick = () => {
+    if (numberOfCookies >= 8000) {
+        numberOfCookies -= 8000;
+        cost_th_purple.innerText = "Bought";
+        thPurpleBought = true;
+        counter.innerText = "Cookies: " + numberOfCookies;
+        th_purple.style.display = "block";
+        buySound();
+        updateBoost();
+        updateAutoclicker();
+        updateAutoclickerUpgrade();
+        updateThemeShop();
+    }
+}
+
+buy_th_red.onclick = () => {
+    if (numberOfCookies >= 8000) {
+        numberOfCookies -= 8000;
+        cost_th_red.innerText = "Bought";
+        thRedBought = true;
+        counter.innerText = "Cookies: " + numberOfCookies;
+        th_red.style.display = "block";
+        buySound();
+        updateBoost();
+        updateAutoclicker();
+        updateAutoclickerUpgrade();
+        updateThemeShop();
+    }
+}
+
+buy_th_violet.onclick = () => {
+    if (numberOfCookies >= 8000) {
+        numberOfCookies -= 8000;
+        cost_th_violet.innerText = "Bought";
+        thVioletBought = true;
+        counter.innerText = "Cookies: " + numberOfCookies;
+        th_violet.style.display = "block";
+        buySound();
+        updateBoost();
+        updateAutoclicker();
+        updateAutoclickerUpgrade();
+        updateThemeShop();
+    }
+}
+
+buy_th_orange.onclick = () => {
+    if (numberOfCookies >= 8000) {
+        numberOfCookies -= 8000;
+        cost_th_orange.innerText = "Bought";
+        thOrangeBought = true;
+        counter.innerText = "Cookies: " + numberOfCookies;
+        th_orange.style.display = "block";
+        buySound();
+        updateBoost();
+        updateAutoclicker();
+        updateAutoclickerUpgrade();
+        updateThemeShop();
+    }
+}
+
 function resetFont() {
     document.querySelectorAll('*:not(.material-symbols-rounded)').forEach(function (element) {
         element.style.fontFamily = '"Itim", sans-serif';
@@ -408,20 +602,22 @@ document.addEventListener("keydown", (event) => {
             cheatKey = "";
         } else if (cheatKey.includes("ieatedit")) {
             numberOfCookies += 1000;
-            counter.innerHTML = "Cookies: " + numberOfCookies;
+            counter.innerText = "Cookies: " + numberOfCookies;
             updateBoost();
             updateAutoclicker();
             updateAutoclickerUpgrade();
             checkAchievements();
+            updateThemeShop();
             console.log("Cheat activated: ieatedit");
             cheatKey = "";
         } else if (cheatKey.includes("nikocado")) {
             numberOfCookies += 1000000;
-            counter.innerHTML = "Cookies: " + numberOfCookies;
+            counter.innerText = "Cookies: " + numberOfCookies;
             updateBoost();
             updateAutoclicker();
             updateAutoclickerUpgrade();
             checkAchievements();
+            updateThemeShop();
             console.log("Cheat activated: nikocado");
             cheatKey = "";
         }
