@@ -1,3 +1,4 @@
+Added new theme "galaxy"
 Added responsivity to achievements
 Added clicking through achievements
 Added sound for buying
@@ -5,6 +6,7 @@ Added store
 Added new cheat "themehack"
 Added grab feature for settings
 
+Fixed dropdown grab in settings
 Fixed lines rendering in store
 Fixed the blue background for mobile
 Fixed cookie cursor

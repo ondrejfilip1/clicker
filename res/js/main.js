@@ -21,6 +21,7 @@ const th_violet = document.getElementById("th-violet");
 const th_purple = document.getElementById("th-purple");
 const th_orange = document.getElementById("th-orange");
 const th_pixel_art = document.getElementById("th-pixel-art");
+const th_galaxy = document.getElementById("th-galaxy");
 
 const buy_th_red = document.getElementById("buy-th-red");
 const buy_th_dark = document.getElementById("buy-th-dark");
@@ -28,6 +29,7 @@ const buy_th_violet = document.getElementById("buy-th-violet");
 const buy_th_purple = document.getElementById("buy-th-purple");
 const buy_th_orange = document.getElementById("buy-th-orange");
 const buy_th_pixel_art = document.getElementById("buy-th-pixel-art");
+const buy_th_galaxy = document.getElementById("buy-th-galaxy");
 
 const cost_th_def = document.getElementById("cost-th-def");
 const cost_th_red = document.getElementById("cost-th-red");
@@ -36,6 +38,7 @@ const cost_th_violet = document.getElementById("cost-th-violet");
 const cost_th_purple = document.getElementById("cost-th-purple");
 const cost_th_orange = document.getElementById("cost-th-orange");
 const cost_th_pixel_art = document.getElementById("cost-th-pixel-art");
+const cost_th_galaxy = document.getElementById("cost-th-galaxy");
 
 const display_amount = document.getElementById("display-amount");
 const cookie_cursor = document.getElementById("cookie-cursor");
@@ -69,6 +72,7 @@ let thVioletBought = false;
 let thPurpleBought = false;
 let thOrangeBought = false;
 let thPixelArtBought = false;
+let thGalaxyBought = false;
 
 function updateTitle() {
     if (display_amount.style.color === 'rgb(181, 255, 181)') {
@@ -151,6 +155,16 @@ function updateThemeShop() {
     if (numberOfCookies < 40000 || thPixelArtBought == true) {
         buy_th_pixel_art.style.opacity = 0.7;
         buy_th_pixel_art.style.pointerEvents = "none";
+    }
+
+    if (numberOfCookies >= 20000) {
+        buy_th_galaxy.style.opacity = 1;
+        buy_th_galaxy.style.pointerEvents = "auto";
+    }
+
+    if (numberOfCookies < 20000 || thGalaxyBought == true) {
+        buy_th_galaxy.style.opacity = 0.7;
+        buy_th_galaxy.style.pointerEvents = "none";
     }
 
     if (numberOfCookies >= 8000) {
@@ -392,9 +406,11 @@ function onMouseDrag({ movementX, movementY }) {
     settingsBox.style.left = `${leftValue + movementX}px`;
     settingsBox.style.top = `${topValue + movementY}px`;
 }
-settingsBox.addEventListener("mousedown", () => {
-    settingsBox.addEventListener("mousemove", onMouseDrag);
-    settingsBox.style.cursor = "grabbing";
+settingsBox.addEventListener("mousedown", (event) => {
+    if (event.target.id === "settingsBox") {
+        settingsBox.addEventListener("mousemove", onMouseDrag);
+        settingsBox.style.cursor = "grabbing";
+    }
 });
 document.addEventListener("mouseup", () => {
     settingsBox.removeEventListener("mousemove", onMouseDrag);
@@ -499,6 +515,15 @@ th_pixel_art.onclick = () => {
     });
 }
 
+th_galaxy.onclick = () => {
+    document.body.style.background = "rgba(0,0,0,0)";
+    document.body.style.backgroundImage = 'url("res/img/space.png")'
+    document.body.style.backgroundAttachment = "";
+    document.body.style.backgroundSize = "cover";
+    cookie.src = 'res/img/cookie.png';
+    resetFont();
+}
+
 buy_th_dark.onclick = () => {
     if (numberOfCookies >= 4000) {
         numberOfCookies -= 4000;
@@ -521,6 +546,21 @@ buy_th_pixel_art.onclick = () => {
         thPixelArtBought = true;
         counter.innerText = "Cookies: " + numberOfCookies;
         th_pixel_art.style.display = "block";
+        buySound();
+        updateBoost();
+        updateAutoclicker();
+        updateAutoclickerUpgrade();
+        updateThemeShop();
+    }
+}
+
+buy_th_galaxy.onclick = () => {
+    if (numberOfCookies >= 40000) {
+        numberOfCookies -= 40000;
+        cost_th_galaxy.innerText = "Bought";
+        thGalaxyBought = true;
+        counter.innerText = "Cookies: " + numberOfCookies;
+        th_galaxy.style.display = "block";
         buySound();
         updateBoost();
         updateAutoclicker();
@@ -644,6 +684,8 @@ document.addEventListener("keydown", (event) => {
             th_purple.style.display = "block";
             cost_th_orange.innerText = "Bought";
             th_orange.style.display = "block";
+            cost_th_galaxy.innerText = "Bought";
+            th_galaxy.style.display = "block";
             updateThemeShop();
             console.log("Cheat activated: themehack");
             cheatKey = "";
