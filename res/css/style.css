@@ -92,6 +92,10 @@ body {
     .button-shop {
         width: 320px!important;
     }
+
+    .responsive-ac {
+        font-size: 1rem;
+    }
 }
 
 @media only screen and (min-width: 768px) {
@@ -324,6 +328,7 @@ table {
     top: 8px;
     left: 8px;
     z-index: 99;
+    pointer-events: none!important;
 }
 
 #ac1,
@@ -437,6 +442,8 @@ table {
     animation: click-text 2s;
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4);
     -webkit-user-drag: none;
+    display: inline-block;
+    z-index: 2;
 }
 
 @keyframes click-text {

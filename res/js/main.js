@@ -13,6 +13,7 @@ const upgrade_1_cost = document.getElementById("upgrade-1-cost");
 const upgrade_image = document.getElementById("upgrade-image");
 const boost_cost = document.getElementById("boost-cost");
 const autoclicker_cost = document.getElementById("autoclicker-cost");
+const container1 = document.querySelector(".container-1");
 
 const th_def = document.getElementById("th-def");
 const th_red = document.getElementById("th-red");
@@ -294,7 +295,7 @@ cookie.onclick = (e) => {
     clickText.style.left = `${e.clientX}px`;
     clickText.style.top = `${e.clientY}px`;
     clickText.innerText = "+ " + boostMultiplier;
-    document.body.appendChild(clickText);
+    container1.appendChild(clickText);
     setTimeout(() => {
         clickText.remove();
     }, 1990);
