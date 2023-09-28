@@ -22,7 +22,6 @@ const th_purple = document.getElementById("th-purple");
 const th_orange = document.getElementById("th-orange");
 const th_pixel_art = document.getElementById("th-pixel-art");
 
-const buy_th_def = document.getElementById("buy-th-def");
 const buy_th_red = document.getElementById("buy-th-red");
 const buy_th_dark = document.getElementById("buy-th-dark");
 const buy_th_violet = document.getElementById("buy-th-violet");
@@ -432,6 +431,12 @@ cookie_cursor.onclick = () => {
         cookie_cursor.style.cursor = 'pointer';
         display_amount.style.cursor = 'pointer';
         buy_upgrade_1.style.cursor = 'pointer';
+        buy_th_dark.style.cursor = 'pointer';
+        buy_th_red.style.cursor = 'pointer';
+        buy_th_pixel_art.style.cursor = 'pointer';
+        buy_th_violet.style.cursor = 'pointer';
+        buy_th_purple.style.cursor = 'pointer';
+        buy_th_orange.style.cursor = 'pointer';
     } else {
         cookie_cursor.style.color = '#b5ffb5';
         document.querySelectorAll('*').forEach(function (element) {
