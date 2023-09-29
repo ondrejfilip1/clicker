@@ -1,4 +1,4 @@
-# 🍪 Cookie clicker
+# <h1 align="center">🍪 Cookie clicker</h1>
 
 [Play](https://ondrejfilip1.github.io/clicker/)
 
