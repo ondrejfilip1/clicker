@@ -1,6 +1,6 @@
 <img src="https://github.com/ondrejfilip1/clicker/blob/main/res/img/banner.png" alt="banner">
 
-<h2 align="center">[Play](https://ondrejfilip1.github.io/clicker/)</h2>
+[<h2 align="center">Play</h2>](https://ondrejfilip1.github.io/clicker/)
 
 ## Secrets
 
