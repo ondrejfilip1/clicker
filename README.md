@@ -1,4 +1,4 @@
-<img src="https://github.com/ondrejfilip1/clicker/blob/main/res/img/banner.png" alt="banner" width="100%">
+<p align="center"><img src="https://github.com/ondrejfilip1/clicker/blob/main/res/img/banner.png" alt="banner"></p>
 
 [Play](https://ondrejfilip1.github.io/clicker/)
 
