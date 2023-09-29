@@ -1,4 +1,5 @@
 Added new theme "galaxy"
+Added new theme "sunset"
 Added responsivity to achievements
 Added clicking through achievements
 Added sound for buying

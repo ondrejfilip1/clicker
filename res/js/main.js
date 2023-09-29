@@ -22,6 +22,7 @@ const th_purple = document.getElementById("th-purple");
 const th_orange = document.getElementById("th-orange");
 const th_pixel_art = document.getElementById("th-pixel-art");
 const th_galaxy = document.getElementById("th-galaxy");
+const th_sunset = document.getElementById("th-sunset");
 
 const buy_th_red = document.getElementById("buy-th-red");
 const buy_th_dark = document.getElementById("buy-th-dark");
@@ -30,6 +31,7 @@ const buy_th_purple = document.getElementById("buy-th-purple");
 const buy_th_orange = document.getElementById("buy-th-orange");
 const buy_th_pixel_art = document.getElementById("buy-th-pixel-art");
 const buy_th_galaxy = document.getElementById("buy-th-galaxy");
+const buy_th_sunset = document.getElementById("buy-th-sunset");
 
 const cost_th_def = document.getElementById("cost-th-def");
 const cost_th_red = document.getElementById("cost-th-red");
@@ -39,6 +41,7 @@ const cost_th_purple = document.getElementById("cost-th-purple");
 const cost_th_orange = document.getElementById("cost-th-orange");
 const cost_th_pixel_art = document.getElementById("cost-th-pixel-art");
 const cost_th_galaxy = document.getElementById("cost-th-galaxy");
+const cost_th_sunset = document.getElementById("cost-th-sunset");
 
 const display_amount = document.getElementById("display-amount");
 const cookie_cursor = document.getElementById("cookie-cursor");
@@ -73,6 +76,7 @@ let thPurpleBought = false;
 let thOrangeBought = false;
 let thPixelArtBought = false;
 let thGalaxyBought = false;
+let thSunsetBought = false;
 
 function updateTitle() {
     if (display_amount.style.color === 'rgb(181, 255, 181)') {
@@ -165,6 +169,16 @@ function updateThemeShop() {
     if (numberOfCookies < 20000 || thGalaxyBought == true) {
         buy_th_galaxy.style.opacity = 0.7;
         buy_th_galaxy.style.pointerEvents = "none";
+    }
+
+    if (numberOfCookies >= 15000) {
+        buy_th_sunset.style.opacity = 1;
+        buy_th_sunset.style.pointerEvents = "auto";
+    }
+
+    if (numberOfCookies < 15000 || thSunsetBought == true) {
+        buy_th_sunset.style.opacity = 0.7;
+        buy_th_sunset.style.pointerEvents = "none";
     }
 
     if (numberOfCookies >= 8000) {
@@ -464,6 +478,7 @@ cookie_cursor.onclick = () => {
 //Themes
 
 th_red.onclick = () => {
+    document.body.classList.remove("moving-background");
     document.body.style.background = "radial-gradient(circle, rgba(255,121,121,1) 52%, rgba(255,79,79,1) 100%)";
     document.body.style.backgroundAttachment = "fixed";
     cookie.src = 'res/img/cookie.png';
@@ -471,6 +486,7 @@ th_red.onclick = () => {
 }
 
 th_def.onclick = () => {
+    document.body.classList.remove("moving-background");
     document.body.style.background = "radial-gradient(circle, rgba(0, 212, 255, 1) 52%, rgba(126, 119, 255, 1) 100%)";
     document.body.style.backgroundAttachment = "fixed";
     cookie.src = 'res/img/cookie.png';
@@ -478,6 +494,7 @@ th_def.onclick = () => {
 }
 
 th_dark.onclick = () => {
+    document.body.classList.remove("moving-background");
     document.body.style.background = "#1b1b1b";
     document.body.style.backgroundAttachment = "fixed";
     cookie.src = 'res/img/cookie.png';
@@ -485,6 +502,7 @@ th_dark.onclick = () => {
 }
 
 th_violet.onclick = () => {
+    document.body.classList.remove("moving-background");
     document.body.style.background = "radial-gradient(circle, rgba(161,141,206,1) 34%, rgba(244,146,240,1) 100%)";
     document.body.style.backgroundAttachment = "fixed";
     cookie.src = 'res/img/cookie.png';
@@ -492,6 +510,7 @@ th_violet.onclick = () => {
 }
 
 th_purple.onclick = () => {
+    document.body.classList.remove("moving-background");
     document.body.style.background = "radial-gradient(circle, rgba(198,63,123,1) 5%, rgba(102,49,119,1) 100%)";
     document.body.style.backgroundAttachment = "fixed";
     cookie.src = 'res/img/cookie.png';
@@ -499,13 +518,23 @@ th_purple.onclick = () => {
 }
 
 th_orange.onclick = () => {
+    document.body.classList.remove("moving-background");
     document.body.style.background = "radial-gradient(circle, rgba(245,92,122,1) 15%, rgba(246,188,102,1) 100%)";
     document.body.style.backgroundAttachment = "fixed";
     cookie.src = 'res/img/cookie.png';
     resetFont();
 }
 
+th_sunset.onclick = () => {
+    document.body.classList.add("moving-background");
+    document.body.style.background = "linear-gradient(70deg, #3a1c71, #d76d77, #ffaf7b, #d76d77, #3a1c71)"
+    document.body.style.backgroundAttachment = "fixed";
+    cookie.src = 'res/img/cookie.png';
+    resetFont();
+}
+
 th_pixel_art.onclick = () => {
+    document.body.classList.remove("moving-background");
     document.body.style.background = "rgba(0,0,0,0)";
     document.body.style.backgroundImage = 'url("res/img/background_pixel.png")'
     document.body.style.backgroundAttachment = "";
@@ -516,6 +545,7 @@ th_pixel_art.onclick = () => {
 }
 
 th_galaxy.onclick = () => {
+    document.body.classList.remove("moving-background");
     document.body.style.background = "rgba(0,0,0,0)";
     document.body.style.backgroundImage = 'url("res/img/space.png")'
     document.body.style.backgroundAttachment = "";
@@ -629,6 +659,21 @@ buy_th_orange.onclick = () => {
     }
 }
 
+buy_th_sunset.onclick = () => {
+    if (numberOfCookies >= 15000) {
+        numberOfCookies -= 15000;
+        cost_th_sunset.innerText = "Bought";
+        thSunsetBought = true;
+        counter.innerText = "Cookies: " + numberOfCookies;
+        th_sunset.style.display = "block";
+        buySound();
+        updateBoost();
+        updateAutoclicker();
+        updateAutoclickerUpgrade();
+        updateThemeShop();
+    }
+}
+
 function resetFont() {
     document.querySelectorAll('*:not(.material-symbols-rounded)').forEach(function (element) {
         element.style.fontFamily = '"Itim", sans-serif';
@@ -672,6 +717,8 @@ document.addEventListener("keydown", (event) => {
             thRedBought = true;
             thVioletBought = true;
             thPurpleBought = true;
+            thGalaxyBought = true;
+            thSunsetBought = true;
             cost_th_dark.innerText = "Bought";
             th_dark.style.display = "block";
             cost_th_red.innerText = "Bought";
@@ -686,6 +733,8 @@ document.addEventListener("keydown", (event) => {
             th_orange.style.display = "block";
             cost_th_galaxy.innerText = "Bought";
             th_galaxy.style.display = "block";
+            cost_th_sunset.innerText = "Bought";
+            th_sunset.style.display = "block";
             updateThemeShop();
             console.log("Cheat activated: themehack");
             cheatKey = "";

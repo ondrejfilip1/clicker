@@ -231,7 +231,7 @@ button.button:last-child {
 
 #buy-upgrade-1 {
     border-image-slice: 1;
-    border-image-source: linear-gradient(to left, #f857a6, #ff957a);
+    border-image-source: linear-gradient(36deg, #904e95, #f857a6, #fa854e);
     border-radius: 0;
     text-align: center;
     margin-left: 12px;
@@ -495,6 +495,29 @@ td {
     background-image: linear-gradient(20deg, #c63f7b9f, #6631779f);
 }
 
+#th-sunset,.th-sunset {
+    background-image: linear-gradient(70deg, #3a1c719f, #d76d779f, #ffaf7b9f);
+    animation: 10s sunset linear;
+}
+
+.moving-background {
+    background: linear-gradient(70deg, #3a1c71, #d76d77, #ffaf7b, #d76d77, #3a1c71);
+    background-size: 400% 400%!important;
+    animation: 40s sunset infinite;
+}
+
+@keyframes sunset {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
 #th-pixel-art,.th-pixel-art {
     background-image: url("../img/cookie_pixel.png");
     background-color: #00000046;
@@ -537,6 +560,6 @@ td {
     top: 23%;
 }
 
-.dropdown-content #th-dark,#th-red,#th-violet,#th-orange,#th-purple,#th-pixel-art,#th-galaxy {
+.dropdown-content #th-dark,#th-red,#th-violet,#th-orange,#th-purple,#th-pixel-art,#th-galaxy,#th-sunset {
     display: none;
 }
