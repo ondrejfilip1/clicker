@@ -1,6 +1,6 @@
-# <h1 align="center">🍪 Cookie clicker</h1>
+<p align="center"><img src="https://github.com/ondrejfilip1/clicker/blob/main/res/img/banner.png" alt="banner"></p>
 
-[Play](https://ondrejfilip1.github.io/clicker/)
+<span style="font-size: larger;">[Play](https://ondrejfilip1.github.io/clicker/)</span>
 
 ## Secrets
 
