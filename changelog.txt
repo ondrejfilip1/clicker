@@ -7,6 +7,7 @@ Added store
 Added new cheat "themehack"
 Added grab feature for settings
 
+Fixed responsivity on copyright text
 Fixed cookie click text
 Fixed dropdown grab in settings
 Fixed lines rendering in store

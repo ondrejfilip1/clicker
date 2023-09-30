@@ -15,6 +15,25 @@ body {
     margin: 0;
 }
 
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(48, 48, 48, 0.3);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #ffffff66;
+    border-radius: 4px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #ffffffcc;
+}
+
 :root {
     --width-1: calc(100% - 320px);
 }
@@ -33,7 +52,8 @@ body {
     width: calc(100% - var(--width-1));
     box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.3);
     margin: 0;
-    height: max-content !important;
+    min-height: 100%;
+    overflow: auto;
     background-color: #00000013;
     backdrop-filter: blur(2px);
 }
@@ -71,6 +91,19 @@ body {
     background-image: url(../img/theme.png);
 }
 
+/* Responsivita */
+
+@media only screen and (min-height: 980px) {
+    .copyright {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 @media only screen and (max-width: 767px) {
     .all {
         flex-direction: column;
@@ -85,12 +118,12 @@ body {
     }
 
     #buy-upgrade-1 {
-        width: 320px!important;
-        margin: auto!important;
+        width: 320px !important;
+        margin: auto !important;
     }
 
     .button-shop {
-        width: 320px!important;
+        width: 320px !important;
     }
 
     .responsive-ac {
@@ -99,14 +132,18 @@ body {
 }
 
 @media only screen and (min-width: 768px) {
-    #buy-upgrade-1,.button-shop {
-        width: 296px!important;
+
+    #buy-upgrade-1,
+    .button-shop {
+        width: 296px !important;
     }
 }
 
 @media only screen and (max-width: 346px) {
-    #buy-upgrade-1,.button-shop {
-        width: calc(100% - 24px)!important;
+
+    #buy-upgrade-1,
+    .button-shop {
+        width: calc(100% - 24px) !important;
     }
 }
 
@@ -333,7 +370,7 @@ td {
     top: 8px;
     left: 8px;
     z-index: 99;
-    pointer-events: none!important;
+    pointer-events: none !important;
 }
 
 #ac1,
@@ -472,61 +509,72 @@ td {
     margin-bottom: 3rem;
 }
 
-#th-def,.th-def {
+#th-def,
+.th-def {
     background-image: linear-gradient(10deg, #00d4ff9f, #7e77ff9f);
 }
 
-#th-dark,.th-dark {
+#th-dark,
+.th-dark {
     background-image: linear-gradient(60deg, #7070709f, #3333339f);
 }
 
-#th-red,.th-red {
+#th-red,
+.th-red {
     background-image: linear-gradient(90deg, #ff79799f, #ff4f4f9f);
 }
 
-#th-orange,.th-orange {
+#th-orange,
+.th-orange {
     background-image: linear-gradient(34deg, #f55c7b9f, #f6bc669f);
 }
 
-#th-violet,.th-violet {
+#th-violet,
+.th-violet {
     background-image: linear-gradient(90deg, #a08dce9f, #f492f09f);
 }
 
-#th-purple,.th-purple {
+#th-purple,
+.th-purple {
     background-image: linear-gradient(20deg, #c63f7b9f, #6631779f);
 }
 
-#th-sunset,.th-sunset {
+#th-sunset,
+.th-sunset {
     background-image: linear-gradient(70deg, #3a1c719f, #d76d779f, #ffaf7b9f);
     animation: 10s sunset linear;
 }
 
 .moving-background {
     background: linear-gradient(70deg, #3a1c71, #d76d77, #ffaf7b, #d76d77, #3a1c71);
-    background-size: 400% 400%!important;
+    background-size: 400% 400% !important;
     animation: 40s sunset infinite;
 }
 
 @keyframes sunset {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
-#th-pixel-art,.th-pixel-art {
+#th-pixel-art,
+.th-pixel-art {
     background-image: url("../img/cookie_pixel.png");
     background-color: #00000046;
     text-shadow: 0px 0px 4px #00000085;
     background-size: cover;
 }
 
-#th-galaxy,.th-galaxy {
+#th-galaxy,
+.th-galaxy {
     background-image: url("../img/space.png");
     background-color: #00000046;
     text-shadow: 0px 0px 4px #00000085;
@@ -561,19 +609,24 @@ td {
     top: 23%;
 }
 
-.dropdown-content #th-dark,#th-red,#th-violet,#th-orange,#th-purple,#th-pixel-art,#th-galaxy,#th-sunset {
+.dropdown-content #th-dark,
+#th-red,
+#th-violet,
+#th-orange,
+#th-purple,
+#th-pixel-art,
+#th-galaxy,
+#th-sunset {
     display: none;
 }
 
-.copyright,.copyright a {
+.copyright,
+.copyright a {
     font-family: monospace;
     color: #0000006c;
     font-size: 14px;
-    text-align: center;
-}
-
-.copyright a {
     text-decoration: none;
+    text-align: center;
 }
 
 .copyright a:hover {

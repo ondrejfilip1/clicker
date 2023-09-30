@@ -15,6 +15,7 @@ const boost_cost = document.getElementById("boost-cost");
 const autoclicker_cost = document.getElementById("autoclicker-cost");
 const container_1 = document.querySelector(".container-1");
 const copyright = document.querySelectorAll(".copyright,.copyright a");
+const copyright_link = document.querySelectorAll(".copyright a");
 
 const th_def = document.getElementById("th-def");
 const th_red = document.getElementById("th-red");
@@ -468,6 +469,11 @@ cookie_cursor.onclick = () => {
         buy_th_violet.style.cursor = 'pointer';
         buy_th_purple.style.cursor = 'pointer';
         buy_th_orange.style.cursor = 'pointer';
+        buy_th_sunset.style.cursor = 'pointer';
+        buy_th_galaxy.style.cursor = 'pointer';
+        for (const element of copyright_link) {
+            element.style.cursor = "pointer";
+        }
     } else {
         cookie_cursor.style.color = '#b5ffb5';
         document.querySelectorAll('*').forEach(function (element) {
