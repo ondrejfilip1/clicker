@@ -1,6 +1,8 @@
 <p align="center"><img src="https://github.com/ondrejfilip1/clicker/blob/main/res/img/banner.png" alt="banner"></p>
 
-<a href="https://ondrejfilip1.github.io/clicker/"><img src="https://github.com/ondrejfilip1/clicker/blob/main/res/img/play.png" alt="play" align="center"></a>
+<p align="center">
+  <a href="https://ondrejfilip1.github.io/clicker/"><img src="https://github.com/ondrejfilip1/clicker/blob/main/res/img/play.png" alt="play"></a>
+</p>
 
 ## Secrets
 
