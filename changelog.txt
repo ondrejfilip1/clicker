@@ -7,7 +7,10 @@ Added store
 Added new cheat "themehack"
 Added grab feature for settings
 
+Fixed cookie click text
 Fixed dropdown grab in settings
 Fixed lines rendering in store
 Fixed the blue background for mobile
 Fixed cookie cursor
+
+Improved code quality
