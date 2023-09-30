@@ -490,6 +490,9 @@ th_red.onclick = () => {
     document.body.style.backgroundAttachment = "fixed";
     cookie.src = 'res/img/cookie.png';
     resetFont();
+    for (const element of copyright) {
+        element.style.color = "#0000006c";
+    }
 }
 
 th_def.onclick = () => {
@@ -498,6 +501,9 @@ th_def.onclick = () => {
     document.body.style.backgroundAttachment = "fixed";
     cookie.src = 'res/img/cookie.png';
     resetFont();
+    for (const element of copyright) {
+        element.style.color = "#0000006c";
+    }
 }
 
 th_dark.onclick = () => {
@@ -514,6 +520,9 @@ th_violet.onclick = () => {
     document.body.style.backgroundAttachment = "fixed";
     cookie.src = 'res/img/cookie.png';
     resetFont();
+    for (const element of copyright) {
+        element.style.color = "#0000006c";
+    }
 }
 
 th_purple.onclick = () => {
@@ -522,6 +531,9 @@ th_purple.onclick = () => {
     document.body.style.backgroundAttachment = "fixed";
     cookie.src = 'res/img/cookie.png';
     resetFont();
+    for (const element of copyright) {
+        element.style.color = "#0000006c";
+    }
 }
 
 th_orange.onclick = () => {
@@ -530,6 +542,9 @@ th_orange.onclick = () => {
     document.body.style.backgroundAttachment = "fixed";
     cookie.src = 'res/img/cookie.png';
     resetFont();
+    for (const element of copyright) {
+        element.style.color = "#0000006c";
+    }
 }
 
 th_sunset.onclick = () => {
@@ -538,6 +553,9 @@ th_sunset.onclick = () => {
     document.body.style.backgroundAttachment = "fixed";
     cookie.src = 'res/img/cookie.png';
     resetFont();
+    for (const element of copyright) {
+        element.style.color = "#0000006c";
+    }
 }
 
 th_pixel_art.onclick = () => {
@@ -549,6 +567,9 @@ th_pixel_art.onclick = () => {
     document.querySelectorAll('*:not(.material-symbols-rounded)').forEach(function (element) {
         element.style.fontFamily = '"Pixel", sans-serif';
     });
+    for (const element of copyright) {
+        element.style.color = "#0000006c";
+    }
 }
 
 th_galaxy.onclick = () => {
@@ -688,6 +709,7 @@ function resetFont() {
 
     for (const element of copyright) {
       element.style.fontFamily = "monospace";
+      element.style.color = "#ffffff6c";
     }
 }
 
