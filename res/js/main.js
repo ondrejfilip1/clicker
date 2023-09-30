@@ -14,6 +14,7 @@ const upgrade_image = document.getElementById("upgrade-image");
 const boost_cost = document.getElementById("boost-cost");
 const autoclicker_cost = document.getElementById("autoclicker-cost");
 const container_1 = document.querySelector(".container-1");
+const copyright = document.querySelectorAll(".copyright,.copyright a");
 
 const th_def = document.getElementById("th-def");
 const th_red = document.getElementById("th-red");
@@ -678,6 +679,10 @@ function resetFont() {
     document.querySelectorAll('*:not(.material-symbols-rounded)').forEach(function (element) {
         element.style.fontFamily = '"Itim", sans-serif';
     });
+
+    for (const element of copyright) {
+      element.style.fontFamily = "monospace";
+    }
 }
 
 // Secrety
