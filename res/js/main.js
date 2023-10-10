@@ -5,7 +5,9 @@ const buy_sound = new Audio("res/sounds/buysound.mp3");
 const settingsClose = document.getElementById("settings-close");
 const settingsBox = document.getElementById("settingsBox");
 const settingsNav = document.getElementById("settings-nav");
-const achievementNav = document.getElementById("achievement-nav");
+const achievementsClose = document.getElementById("achievements-close");
+const achievementsBox = document.getElementById("achievementsBox");
+const achievementsNav = document.getElementById("achievement-nav");
 const buy_boost = document.getElementById("buy-boost");
 const buy_autoclicker = document.getElementById("buy-autoclicker");
 const buy_upgrade_1 = document.getElementById("buy-upgrade-1");
@@ -405,11 +407,23 @@ settingsClose.onclick = () => {
     settingsBox.style.display = "none";
 }
 
+achievementsClose.onclick = () => {
+    achievementsBox.style.display = "none";
+}
+
 settingsNav.onclick = () => {
     if (settingsBox.style.display === 'none' || settingsBox.style.display === '') {
         settingsBox.style.display = 'block';
     } else {
         settingsBox.style.display = 'none';
+    }
+}
+
+achievementsNav.onclick = () => {
+    if (achievementsBox.style.display === 'none' || achievementsBox.style.display === '') {
+        achievementsBox.style.display = 'block';
+    } else {
+        achievementsBox.style.display = 'none';
     }
 }
 
