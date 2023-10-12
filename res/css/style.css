@@ -2,6 +2,8 @@
     user-select: none;
     font-family: 'Itim', cursive;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    /* Fix pro mobily */
 }
 
 html,
@@ -186,8 +188,6 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    /* Fix pro mobily */
 }
 
 #cookie:hover {
