@@ -20,16 +20,23 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: rgba(48, 48, 48, 0.3);
+    background: #aeaeae;
 }
 
-/* Handle */
+.container-2::-webkit-scrollbar-track {
+    background: transparent;
+}
+
 ::-webkit-scrollbar-thumb {
+    background: #ffffffb9;
+    border-radius: 4px;
+}
+
+.container-2::-webkit-scrollbar-thumb {
     background: #ffffff66;
     border-radius: 4px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #ffffffcc;
 }
@@ -52,8 +59,9 @@ body {
     width: calc(100% - var(--width-1));
     box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.3);
     margin: 0;
+    padding-right: 0;
     min-height: 100%;
-    overflow: auto;
+    overflow-y: scroll;
     background-color: #00000013;
     backdrop-filter: blur(2px);
 }
@@ -101,6 +109,10 @@ body {
         bottom: 0;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .container-2 {
+        overflow-y: hidden;
     }
 }
 
@@ -212,6 +224,23 @@ body {
     color: #ffb5b5;
     transition: .2s color;
     cursor: pointer;
+}
+
+.statistics-text {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: 21px;
+    pointer-events: none;
+}
+
+.statistics-text span {
+    float: right;
+    margin-left: 40px;
+    color: #61daff;
+}
+
+.bigger-text {
+    font-size: 24px;
 }
 
 .button {
@@ -424,12 +453,13 @@ td {
     opacity: 0.7;
     cursor: pointer;
     font-size: 3rem;
-    transition: .05s opacity;
+    transition: .1s opacity, .1s text-shadow;
     float: right;
 }
 
 .navbar:hover {
     opacity: 1;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
 }
 
 .dropdown {
@@ -603,6 +633,22 @@ td {
     border-color: #a362ff;
 }
 
+#acStats1 {
+    color: #fac176;
+}
+
+#acStats2 {
+    color: #e3c62d;
+}
+
+#acStats3 {
+    color: #7bd8f7;
+}
+
+#acStats4 {
+    color: #a362ff;
+}
+
 .icon-shop {
     position: absolute;
     right: 8px;
@@ -616,8 +662,16 @@ td {
 #th-purple,
 #th-pixel-art,
 #th-galaxy,
-#th-sunset {
+#th-sunset,
+#acStats1,
+#acStats2,
+#acStats3,
+#acStats4 {
     display: none;
+}
+
+#statisticsBox {
+    cursor: auto;
 }
 
 .copyright,

@@ -5,13 +5,25 @@ const buy_sound = new Audio("res/sounds/buysound.mp3");
 const settingsClose = document.getElementById("settings-close");
 const settingsBox = document.getElementById("settingsBox");
 const settingsNav = document.getElementById("settings-nav");
-const achievementNav = document.getElementById("achievement-nav");
+const statisticsClose = document.getElementById("statistics-close");
+const statisticsBox = document.getElementById("statisticsBox");
+const statisticsNav = document.getElementById("statistic-nav");
 const buy_boost = document.getElementById("buy-boost");
 const buy_autoclicker = document.getElementById("buy-autoclicker");
 const buy_upgrade_1 = document.getElementById("buy-upgrade-1");
 const upgrade_1_cost = document.getElementById("upgrade-1-cost");
 const upgrade_image = document.getElementById("upgrade-image");
 const boost_cost = document.getElementById("boost-cost");
+
+const boost_lvl_stats = document.getElementById("boost-lvl-stats");
+const ac_lvl_stats = document.getElementById("ac-lvl-stats");
+const ac_speed_lvl_stats = document.getElementById("ac-speed-lvl-stats");
+
+const acStats1 = document.getElementById("acStats1");
+const acStats2 = document.getElementById("acStats2");
+const acStats3 = document.getElementById("acStats3");
+const acStats4 = document.getElementById("acStats4");
+
 const autoclicker_cost = document.getElementById("autoclicker-cost");
 const container_1 = document.querySelector(".container-1");
 const copyright = document.querySelectorAll(".copyright,.copyright a");
@@ -66,6 +78,10 @@ let autoclickerUpgrade = 1;
 let autoclickerUpgradeCost = 2000;
 let autoclickerInterval = setInterval(autoclickerThing, 1000 * autoclickerUpgrade);
 let autoclickerBuyLimit = 9;
+
+let boostLvl = 0;
+let acLvl = 0;
+let acSpeedLvl = 0;
 
 let acHundred = false;
 let acThousand = false;
@@ -301,6 +317,22 @@ function checkAchievements() {
 
         acMilion = true;
     }
+
+    if (acHundred == true) {
+        acStats1.style.display = "block";
+    }
+
+    if (acThousand == true) {
+        acStats2.style.display = "block";
+    }
+
+    if (acTwThousand == true) {
+        acStats3.style.display = "block";
+    }
+
+    if (acMilion == true) {
+        acStats4.style.display = "block";
+    }
 }
 
 cookie.onclick = (e) => {
@@ -347,6 +379,8 @@ buy_boost.onclick = () => {
         boost_cost.innerText = boostCost;
         boostMultiplier *= 2;
         counter.innerText = "Cookies: " + numberOfCookies;
+        boostLvl += 1;
+        boost_lvl_stats.innerText = boostLvl;
         buySound();
         updateBoost();
         updateAutoclicker();
@@ -363,6 +397,8 @@ buy_autoclicker.onclick = () => {
         autoclickerAdd *= 2;
         counter.innerText = "Cookies: " + numberOfCookies;
         per_second.innerText = (autoclickerAdd * (2 - autoclickerUpgrade)).toFixed(1);
+        acLvl += 1;
+        ac_lvl_stats.innerText = acLvl;
         buySound();
         updateBoost();
         updateAutoclicker();
@@ -393,6 +429,8 @@ buy_upgrade_1.onclick = () => {
             buy_upgrade_1.style.opacity = 0.7;
             buy_upgrade_1.style.pointerEvents = "none";
         }
+        acSpeedLvl += 1;
+        ac_speed_lvl_stats.innerText = acSpeedLvl;
         buySound();
         updateBoost();
         updateAutoclicker();
@@ -405,6 +443,10 @@ settingsClose.onclick = () => {
     settingsBox.style.display = "none";
 }
 
+statisticsClose.onclick = () => {
+    statisticsBox.style.display = "none";
+}
+
 settingsNav.onclick = () => {
     if (settingsBox.style.display === 'none' || settingsBox.style.display === '') {
         settingsBox.style.display = 'block';
@@ -413,20 +455,44 @@ settingsNav.onclick = () => {
     }
 }
 
+statisticsNav.onclick = () => {
+    if (statisticsBox.style.display === 'none' || statisticsBox.style.display === '') {
+        statisticsBox.style.display = 'block';
+    } else {
+        statisticsBox.style.display = 'none';
+    }
+}
+
 // https://www.geeksforgeeks.org/draggable-element-using-javascript/
 
-function onMouseDrag({ movementX, movementY }) {
-    let getsettingsBoxStyle = window.getComputedStyle(settingsBox);
-    let leftValue = parseInt(getsettingsBoxStyle.left);
-    let topValue = parseInt(getsettingsBoxStyle.top);
-    settingsBox.style.left = `${leftValue + movementX}px`;
-    settingsBox.style.top = `${topValue + movementY}px`;
+function onMouseDrag({ movementX, movementY, target }) {
+    const box = target;
+    const boxStyle = window.getComputedStyle(box);
+    let leftValue = parseInt(boxStyle.left);
+    let topValue = parseInt(boxStyle.top);
+    box.style.left = `${leftValue + movementX}px`;
+    box.style.top = `${topValue + movementY}px`;
 }
+
 settingsBox.addEventListener("mousedown", (event) => {
-    if (event.target.id === "settingsBox") {
+    if (event.target === settingsBox) {
         settingsBox.addEventListener("mousemove", onMouseDrag);
         settingsBox.style.cursor = "grabbing";
     }
+});
+
+statisticsBox.addEventListener("mousedown", (event) => {
+    if (event.target === statisticsBox) {
+        statisticsBox.addEventListener("mousemove", onMouseDrag);
+        statisticsBox.style.cursor = "grabbing";
+    }
+});
+
+document.addEventListener("mouseup", () => {
+    settingsBox.style.cursor = "pointer";
+    statisticsBox.style.cursor = "auto";
+    settingsBox.removeEventListener("mousemove", onMouseDrag);
+    statisticsBox.removeEventListener("mousemove", onMouseDrag);
 });
 document.addEventListener("mouseup", () => {
     settingsBox.removeEventListener("mousemove", onMouseDrag);
@@ -456,10 +522,11 @@ cookie_cursor.onclick = () => {
         //Cinsky kod
         cookie.style.cursor = 'pointer';
         settingsClose.style.cursor = 'pointer';
+        statisticsClose.style.cursor = 'pointer';
         buy_boost.style.cursor = 'pointer';
         buy_autoclicker.style.cursor = 'pointer';
         settingsNav.style.cursor = 'pointer';
-        achievementNav.style.cursor = 'pointer';
+        statisticsNav.style.cursor = 'pointer';
         cookie_cursor.style.cursor = 'pointer';
         display_amount.style.cursor = 'pointer';
         buy_upgrade_1.style.cursor = 'pointer';

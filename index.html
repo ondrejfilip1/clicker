@@ -21,7 +21,7 @@
                 <span class="material-symbols-rounded navbar" id="settings-nav">
                     settings
                 </span>
-                <span class="material-symbols-rounded navbar" id="achievement-nav">
+                <span class="material-symbols-rounded navbar" id="statistic-nav">
                     trophy
                 </span>
             </div>
@@ -84,6 +84,26 @@
                     </div>
                 </div>
             </div>
+            <div class="settings button" id="statisticsBox">Statistics
+                <span class="material-symbols-rounded box-button" id="statistics-close">
+                    close
+                </span>
+                <br>
+                <div class="statistics-text">Boost level: 
+                    <span id="boost-lvl-stats">0</span>
+                </div>
+                <div class="statistics-text">Autoclicker level: 
+                    <span id="ac-lvl-stats">0</span>
+                </div>
+                <div class="statistics-text">Autoclicker speed level: 
+                    <span id="ac-speed-lvl-stats">0</span>
+                </div>
+                <div class="statistics-text bigger-text">Achievements:</div>
+                <div class="statistics-text" id="acStats1">100 cookies</div>
+                <div class="statistics-text" id="acStats2">1 000 cookies</div>
+                <div class="statistics-text" id="acStats3">20 000 cookies</div>
+                <div class="statistics-text" id="acStats4">1 000 000 cookies</div>
+            </div>
         </div>
         <div class="container-2">
             <h2>Store</h2>
@@ -111,16 +131,24 @@
                 <table>
                     <tr>
                         <td>
-                            <button class="button th-dark" id="buy-th-dark">Dark<br><span class="cost" id="cost-th-dark">4000</span></button>
-                            <button class="button th-red" id="buy-th-red">Red<br><span class="cost" id="cost-th-red">8000</span></button>
-                            <button class="button th-violet" id="buy-th-violet">Violet<br><span class="cost" id="cost-th-violet">8000</span></button>
-                            <button class="button th-galaxy" id="buy-th-galaxy">Galaxy<br><span class="cost" id="cost-th-galaxy">20000</span></button>
+                            <button class="button th-dark" id="buy-th-dark">Dark<br><span class="cost"
+                                    id="cost-th-dark">4000</span></button>
+                            <button class="button th-red" id="buy-th-red">Red<br><span class="cost"
+                                    id="cost-th-red">8000</span></button>
+                            <button class="button th-violet" id="buy-th-violet">Violet<br><span class="cost"
+                                    id="cost-th-violet">8000</span></button>
+                            <button class="button th-galaxy" id="buy-th-galaxy">Galaxy<br><span class="cost"
+                                    id="cost-th-galaxy">20000</span></button>
                         </td>
                         <td>
-                            <button class="button th-purple" id="buy-th-purple">Purple<br><span class="cost" id="cost-th-purple">8000</span></button>
-                            <button class="button th-orange" id="buy-th-orange">Orange<br><span class="cost" id="cost-th-orange">8000</span></button>
-                            <button class="button th-sunset" id="buy-th-sunset">Sunset<br><span class="cost" id="cost-th-sunset">15000</span></button>
-                            <button class="button th-pixel-art" id="buy-th-pixel-art">Pixel Art<br><span class="cost" id="cost-th-pixel-art">40000</span></button>
+                            <button class="button th-purple" id="buy-th-purple">Purple<br><span class="cost"
+                                    id="cost-th-purple">8000</span></button>
+                            <button class="button th-orange" id="buy-th-orange">Orange<br><span class="cost"
+                                    id="cost-th-orange">8000</span></button>
+                            <button class="button th-sunset" id="buy-th-sunset">Sunset<br><span class="cost"
+                                    id="cost-th-sunset">15000</span></button>
+                            <button class="button th-pixel-art" id="buy-th-pixel-art">Pixel Art<br><span class="cost"
+                                    id="cost-th-pixel-art">40000</span></button>
                         </td>
                     </tr>
                 </table>
