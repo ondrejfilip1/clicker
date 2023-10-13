@@ -26,8 +26,10 @@ const acStats4 = document.getElementById("acStats4");
 
 const autoclicker_cost = document.getElementById("autoclicker-cost");
 const container_1 = document.querySelector(".container-1");
+const container_2 = document.querySelector(".container-2");
 const copyright = document.querySelectorAll(".copyright,.copyright a");
 const copyright_link = document.querySelectorAll(".copyright a");
+const copyright_id = document.getElementById("copyright");
 
 const th_def = document.getElementById("th-def");
 const th_red = document.getElementById("th-red");
@@ -465,14 +467,14 @@ statisticsNav.onclick = () => {
 
 // https://www.geeksforgeeks.org/draggable-element-using-javascript/
 
-function onMouseDrag({ movementX, movementY, target }) {
+const onMouseDrag = ({ movementX, movementY, target }) => {
     const box = target;
     const boxStyle = window.getComputedStyle(box);
     let leftValue = parseInt(boxStyle.left);
     let topValue = parseInt(boxStyle.top);
     box.style.left = `${leftValue + movementX}px`;
     box.style.top = `${topValue + movementY}px`;
-}
+};
 
 settingsBox.addEventListener("mousedown", (event) => {
     if (event.target === settingsBox) {
@@ -630,6 +632,8 @@ th_pixel_art.onclick = () => {
     document.body.style.background = "rgba(0,0,0,0)";
     document.body.style.backgroundImage = 'url("res/img/background_pixel.png")'
     document.body.style.backgroundAttachment = "";
+    copyright_id.classList.add("copyright2");
+    container_2.classList.add("container-2-fix");
     cookie.src = 'res/img/cookie_pixel.png';
     document.querySelectorAll('*:not(.material-symbols-rounded)').forEach(function (element) {
         element.style.fontFamily = '"Pixel", sans-serif';
@@ -778,6 +782,8 @@ function resetFont() {
       element.style.fontFamily = "monospace";
       element.style.color = "#ffffff6c";
     }
+    copyright_id.classList.remove("copyright2");
+    container_2.classList.remove("container-2-fix");
 }
 
 // Secrety

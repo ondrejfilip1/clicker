@@ -459,7 +459,7 @@ td {
 
 .navbar:hover {
     opacity: 1;
-    text-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 .dropdown {
@@ -684,4 +684,27 @@ td {
 
 .copyright a:hover {
     text-decoration: underline;
+}
+
+.copyright2,.copyright2 a {
+    font-size: 16px;
+}
+
+.container-2-fix {
+    overflow-y: scroll;
+}
+
+@media only screen and (min-height: 929px) {
+    .copyright2 {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .container-2-fix {
+        overflow-y: hidden;
+    }
 }
